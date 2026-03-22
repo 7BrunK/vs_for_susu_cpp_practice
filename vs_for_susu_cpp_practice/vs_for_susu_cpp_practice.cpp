@@ -53,7 +53,7 @@ int main_arrays() {
         int block_size = N / K;
         int remainder = N % K; // Остаток распределяется по первым блокам
 
-        cout << "\nРазмеры блоков: ";
+        cout << "Размеры блоков: ";
         int cur_index = 0;
 
         for (int i = 0; i < K; i++) {
@@ -109,12 +109,12 @@ int main_strings() {
     getline(cin, input);
 
     if (input.empty()) {
-        cerr << "Ошибка: Введена пустая строка!";
+        cerr << "Ошибка: Введена пустая строка!\n";
         return 1;
     }
 
-    if (is_real_number(input)) printf("Строка %s является вещественным числом.", input.c_str());
-    else printf("Строка %s НЕ является вещественным числом.", input.c_str());
+    if (is_real_number(input)) printf("Строка %s является вещественным числом.\n", input.c_str());
+    else printf("Строка %s НЕ является вещественным числом.\n", input.c_str());
 
     return 0;
 }
@@ -123,13 +123,14 @@ int main() {
     setlocale(LC_ALL, "Russian");
     int choice;
 
+    cout << string(30, '=') << endl;
     cout << "Выберите задачу:\n";
     cout << "1. Задача на массивы\n";
     cout << "2. Задача на строки\n";
     cout << "Ваш выбор: ";
     cin >> choice;
-    cin.ignore();
     cout << string(30, '=') << endl;
+    cin.ignore();
 
     switch (choice) {
     case 1:
@@ -137,7 +138,7 @@ int main() {
     case 2:
         return main_strings();
     default:
-        cerr << "Ошибка!" << endl;
-        return 1;
+        return 0;
     }
+    return 0;
 }
